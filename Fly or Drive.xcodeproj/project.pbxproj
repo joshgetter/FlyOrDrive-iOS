@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0370BB531D57790E009231DC /* sky.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0370BB521D57790E009231DC /* sky.jpeg */; };
 		0376E46E1AFC1EFD0021DC77 /* ViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376E46D1AFC1EFD0021DC77 /* ViewTwo.swift */; };
 		037DB6281AF6910C00519D4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DB6271AF6910C00519D4B /* AppDelegate.swift */; };
 		037DB62A1AF6910C00519D4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DB6291AF6910C00519D4B /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0370BB521D57790E009231DC /* sky.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sky.jpeg; path = ../../../../../Downloads/sky.jpeg; sourceTree = "<group>"; };
 		0376E46D1AFC1EFD0021DC77 /* ViewTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTwo.swift; sourceTree = "<group>"; };
 		037DB6221AF6910C00519D4B /* Fly or Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fly or Drive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		037DB6261AF6910C00519D4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		037DB6241AF6910C00519D4B /* Fly or Drive */ = {
 			isa = PBXGroup;
 			children = (
+				0370BB521D57790E009231DC /* sky.jpeg */,
 				03FB10D91C3D92B8003FF3EC /* commonFunctions.swift */,
 				0388D8621B04E24600FFBD3A /* SWXMLHash.swift */,
 				037DB6271AF6910C00519D4B /* AppDelegate.swift */,
@@ -259,6 +262,7 @@
 			files = (
 				037DB62D1AF6910C00519D4B /* Main.storyboard in Resources */,
 				037DB62F1AF6910C00519D4B /* Images.xcassets in Resources */,
+				0370BB531D57790E009231DC /* sky.jpeg in Resources */,
 				03FB10E21C418172003FF3EC /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +461,6 @@
 			baseConfigurationReference = 82FF7B9969F7EAAA839D90AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -476,7 +479,6 @@
 			baseConfigurationReference = 7CF85131C46141AB3B903740 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

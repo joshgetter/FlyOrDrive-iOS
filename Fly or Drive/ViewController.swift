@@ -519,6 +519,10 @@ class ViewController: UIViewController, NSXMLParserDelegate, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "sky.jpeg")!);
+        let backgroundView = UIImageView(frame: UIScreen.mainScreen().bounds)
+        backgroundView.image = UIImage(named: "sky.jpeg");
+        self.view.insertSubview(backgroundView, atIndex: 0);
         self.canDisplayBannerAds = true;
         // Do any additional setup after loading the view, typically from a nib.
         userDefualts.registerDefaults([

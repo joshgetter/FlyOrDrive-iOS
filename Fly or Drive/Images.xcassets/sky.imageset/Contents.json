@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Icon-72.png",
+      "filename" : "flight-mountains-sky-flying.jpeg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Icon-72@2x.png",
       "scale" : "2x"
     },
     {
