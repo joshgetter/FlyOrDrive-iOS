@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7cl-sH-YJI">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7cl-sH-YJI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Fly / Drive-->
@@ -37,12 +41,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="CLH-Up-szN"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="arrowIcon">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="selected" backgroundImage="blueArrow">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="getLocatoinPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EpK-Y0-Phr"/>
@@ -89,11 +93,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Passengers:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAt-XO-QGf">
                                 <rect key="frame" x="16" y="257" width="204" height="96"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgT-Cb-87z" customClass="GADBannerView">
+                                <rect key="frame" x="27" y="573" width="320" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8eW-C9-6mH"/>
+                                    <constraint firstAttribute="width" constant="320" id="VVy-4t-fDm"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o1z-SK-beX" firstAttribute="leading" secondItem="5sl-Vq-ws8" secondAttribute="trailing" constant="4" id="4XB-gF-b4W"/>
                             <constraint firstItem="rJQ-cp-MhM" firstAttribute="trailing" secondItem="Bag-HL-h7u" secondAttribute="trailing" id="4uT-RC-8tg"/>
@@ -120,6 +132,8 @@
                             <constraint firstItem="nzz-QP-nm9" firstAttribute="leading" secondItem="AdR-fU-fsy" secondAttribute="leading" id="j2h-AX-tj7"/>
                             <constraint firstItem="FYA-7q-2j3" firstAttribute="top" secondItem="1Mr-gp-xnR" secondAttribute="top" id="l0I-Rd-0DV"/>
                             <constraint firstAttribute="trailing" secondItem="FYA-7q-2j3" secondAttribute="trailing" constant="122" id="lqR-ul-AcF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cgT-Cb-87z" secondAttribute="bottom" id="mzz-gp-6Wc"/>
+                            <constraint firstItem="cgT-Cb-87z" firstAttribute="centerX" secondItem="nzz-QP-nm9" secondAttribute="centerX" id="oQv-Pe-pNu"/>
                             <constraint firstItem="FYA-7q-2j3" firstAttribute="leading" secondItem="uAt-XO-QGf" secondAttribute="trailing" constant="8" id="rQE-yB-kSt"/>
                             <constraint firstItem="5sl-Vq-ws8" firstAttribute="leading" secondItem="Bag-HL-h7u" secondAttribute="leading" id="vhB-Ra-8ko"/>
                         </constraints>
@@ -136,7 +150,7 @@
                                 <rect key="frame" x="329" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="goButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u02-F6-2TU"/>
@@ -145,8 +159,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="adBanner" destination="cgT-Cb-87z" id="wI4-An-DGt"/>
                         <outlet property="departureDateField" destination="AdR-fU-fsy" id="rBr-g9-Tlz"/>
                         <outlet property="endLoc" destination="Bag-HL-h7u" id="UeS-h8-VcN"/>
                         <outlet property="getLocButton" destination="o1z-SK-beX" id="9Ke-Vn-Ktg"/>
@@ -180,7 +194,7 @@
                                     <constraint firstAttribute="height" constant="21" id="9Av-Bg-hSb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car Year" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="is5-1I-Wtt">
@@ -221,7 +235,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a car:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rm1-wH-DXV">
                                 <rect key="frame" x="20" y="72" width="351" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIb-iO-7jK">
@@ -248,7 +262,7 @@
                                 </connections>
                             </slider>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="is5-1I-Wtt" firstAttribute="leading" secondItem="qnt-j9-Rzc" secondAttribute="leading" id="3h1-Tp-CKb"/>
                             <constraint firstItem="B2D-yj-2sf" firstAttribute="top" secondItem="Wwh-7r-jX9" secondAttribute="bottom" constant="8" symbolic="YES" id="6Cc-vL-vVl"/>
@@ -314,7 +328,7 @@
                                     <constraint firstAttribute="height" constant="21" id="tpo-08-Dz2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFc-Hc-r6A">
@@ -323,7 +337,7 @@
                                     <constraint firstAttribute="height" constant="21" id="7Nc-gb-5tr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4EM-jB-prB">
@@ -345,7 +359,7 @@
                                     <constraint firstAttribute="height" constant="21" id="phF-q9-5bN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Duraton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7e6-Wo-kDy">
@@ -354,7 +368,7 @@
                                     <constraint firstAttribute="height" constant="21" id="8cZ-tl-oBL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYQ-6D-MYb">
@@ -363,7 +377,7 @@
                                     <constraint firstAttribute="height" constant="21" id="opl-yo-KC9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49P-nM-04u">
@@ -372,20 +386,38 @@
                                     <constraint firstAttribute="height" constant="21" id="zoB-Oh-4eB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mx2-gy-utY" customClass="GMSMapView">
-                                <rect key="frame" x="20" y="287" width="335" height="328"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mx2-gy-utY" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="287" width="335" height="285"/>
                             </mapView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mxr-2Y-Xye" customClass="GADBannerView">
+                                <rect key="frame" x="27" y="572" width="320" height="51"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ezi-kQ-WPm"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="pQG-n8-xIP"/>
+                                    <constraint firstAttribute="height" constant="50" id="rpv-sF-Q07"/>
+                                    <constraint firstAttribute="width" constant="320" id="yW4-fk-W4p"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ezi-kQ-WPm"/>
+                                        <exclude reference="pQG-n8-xIP"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gqW-vd-Moy" firstAttribute="trailing" secondItem="7e6-Wo-kDy" secondAttribute="trailing" id="1gj-T2-y4K"/>
                             <constraint firstItem="49P-nM-04u" firstAttribute="leading" secondItem="ECv-7G-Pwa" secondAttribute="leading" id="2xl-5A-W4e"/>
                             <constraint firstItem="4EM-jB-prB" firstAttribute="leading" secondItem="dDg-HB-QB7" secondAttribute="leading" id="3p7-D8-Mtp"/>
                             <constraint firstItem="fFc-Hc-r6A" firstAttribute="trailing" secondItem="ECv-7G-Pwa" secondAttribute="trailing" id="5Ia-yS-FZk"/>
                             <constraint firstItem="fFc-Hc-r6A" firstAttribute="leading" secondItem="ECv-7G-Pwa" secondAttribute="leading" id="7Rn-gw-82w"/>
+                            <constraint firstItem="Mxr-2Y-Xye" firstAttribute="top" secondItem="Mx2-gy-utY" secondAttribute="bottom" id="9Zd-2k-Upj"/>
+                            <constraint firstItem="Mxr-2Y-Xye" firstAttribute="centerX" secondItem="Mx2-gy-utY" secondAttribute="centerX" id="9fo-zh-hqV"/>
                             <constraint firstItem="Mx2-gy-utY" firstAttribute="leading" secondItem="7e6-Wo-kDy" secondAttribute="leading" id="CGW-2Z-Fa1"/>
                             <constraint firstItem="dYQ-6D-MYb" firstAttribute="top" secondItem="eNN-so-oZz" secondAttribute="bottom" constant="32" id="Co0-of-Ybd"/>
                             <constraint firstItem="fFc-Hc-r6A" firstAttribute="top" secondItem="ECv-7G-Pwa" secondAttribute="bottom" multiplier="1.1" constant="8" id="It6-va-89J"/>
@@ -393,11 +425,12 @@
                             <constraint firstItem="Mx2-gy-utY" firstAttribute="top" secondItem="7e6-Wo-kDy" secondAttribute="bottom" multiplier="1.5" constant="-133" id="NCZ-v2-T4j"/>
                             <constraint firstItem="7e6-Wo-kDy" firstAttribute="leading" secondItem="gqW-vd-Moy" secondAttribute="leading" id="Peh-Q6-c3t"/>
                             <constraint firstItem="49P-nM-04u" firstAttribute="leading" secondItem="dYQ-6D-MYb" secondAttribute="leading" id="Pil-ob-83h"/>
-                            <constraint firstItem="hHr-DR-rTg" firstAttribute="top" secondItem="Mx2-gy-utY" secondAttribute="bottom" constant="8" id="QMy-QR-Niw"/>
+                            <constraint firstItem="hHr-DR-rTg" firstAttribute="top" secondItem="Mx2-gy-utY" secondAttribute="bottom" constant="51" id="QMy-QR-Niw"/>
                             <constraint firstItem="7e6-Wo-kDy" firstAttribute="top" secondItem="gqW-vd-Moy" secondAttribute="bottom" constant="8" id="USl-F3-LEe"/>
                             <constraint firstItem="dYQ-6D-MYb" firstAttribute="leading" secondItem="dDg-HB-QB7" secondAttribute="leadingMargin" constant="4" id="UUa-5Y-e00"/>
                             <constraint firstItem="ECv-7G-Pwa" firstAttribute="trailing" secondItem="49P-nM-04u" secondAttribute="trailing" id="VVh-kL-hfV"/>
                             <constraint firstAttribute="trailing" secondItem="fFc-Hc-r6A" secondAttribute="trailing" id="dsk-9l-KOt"/>
+                            <constraint firstItem="hHr-DR-rTg" firstAttribute="top" secondItem="Mxr-2Y-Xye" secondAttribute="bottom" id="gZ9-q9-zUG"/>
                             <constraint firstItem="49P-nM-04u" firstAttribute="top" secondItem="dYQ-6D-MYb" secondAttribute="bottom" constant="8" id="gZj-h6-ncD"/>
                             <constraint firstItem="ECv-7G-Pwa" firstAttribute="top" secondItem="49P-nM-04u" secondAttribute="bottom" constant="8" id="hMQ-vC-RYa"/>
                             <constraint firstItem="4EM-jB-prB" firstAttribute="trailing" secondItem="dYQ-6D-MYb" secondAttribute="trailing" id="kqN-iU-U2o"/>
@@ -406,11 +439,18 @@
                             <constraint firstItem="49P-nM-04u" firstAttribute="trailing" secondItem="dYQ-6D-MYb" secondAttribute="trailing" id="vde-HV-uuu"/>
                             <constraint firstItem="gqW-vd-Moy" firstAttribute="top" secondItem="fFc-Hc-r6A" secondAttribute="bottom" constant="8" id="vtP-9U-OpK"/>
                             <constraint firstItem="fFc-Hc-r6A" firstAttribute="trailing" secondItem="gqW-vd-Moy" secondAttribute="trailing" id="wzh-iK-uPx"/>
+                            <constraint firstItem="hHr-DR-rTg" firstAttribute="top" secondItem="Mxr-2Y-Xye" secondAttribute="bottom" id="yOs-D2-xwN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QMy-QR-Niw"/>
+                                <exclude reference="yOs-D2-xwN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Fly / Drive" id="EFR-VW-b3n"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="adBanner" destination="Mxr-2Y-Xye" id="Wqt-Kq-Eiv"/>
                         <outlet property="backButton" destination="NTi-wC-CTP" id="PQR-ne-v9k"/>
                         <outlet property="driveCostLabel" destination="dYQ-6D-MYb" id="lHD-QH-6RS"/>
                         <outlet property="driveDistanceLabel" destination="49P-nM-04u" id="ziA-qJ-3X9"/>
@@ -423,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpO-hC-CDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518.5" y="-368.5"/>
+            <point key="canvasLocation" x="1769" y="-358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r31-XL-hsG">

@@ -13,7 +13,7 @@ import UIKit
 var carMPG = String();
 
 class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
-    var settings = NSUserDefaults.standardUserDefaults();
+    var settings = UserDefaults.standard;
     var savedCars = Array<Array<String>>();
     @IBOutlet weak var saveCarButton: UIButton!
     @IBOutlet weak var drivingHoursLabel: UILabel!
@@ -35,113 +35,113 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     var selectedCarOptions = String();
     var selectedCarMPG = String();
     
-    var yearUrl = NSURL(string: "http://www.fueleconomy.gov/ws/rest/vehicle/menu/year");
+    var yearUrl = URL(string: "http://www.fueleconomy.gov/ws/rest/vehicle/menu/year");
 
     @IBOutlet weak var carMakeTextField: UITextField!
     @IBOutlet weak var carYearTextField: UITextField!
     @IBOutlet weak var carModelTextField: UITextField!
     @IBOutlet weak var carOptionsTextField: UITextField!
-    @IBAction func carYearEditing(sender: AnyObject) {
+    @IBAction func carYearEditing(_ sender: AnyObject) {
         pickerView.delegate = self;
         pickerView.dataSource = self;
         carYearTextField.inputView = self.pickerView;
         /*selectedCarYear = carYears[0];
         carYearTextField.text = "Car Year: " + selectedCarYear;*/
-        if(pickerView.selectedRowInComponent(0) == 0)
+        if(pickerView.selectedRow(inComponent: 0) == 0)
         {
         pickerView.selectRow(0, inComponent: 0, animated: true);
         self.pickerView(pickerView, didSelectRow: 0, inComponent: 0);
         }
     }
     
-    @IBAction func carMakeEditing(sender: AnyObject) {
+    @IBAction func carMakeEditing(_ sender: AnyObject) {
         pickerViewMake.delegate = self;
         pickerViewMake.dataSource = self;
         carMakeTextField.inputView = self.pickerViewMake;
-        if(pickerViewMake.selectedRowInComponent(0) == 0)
+        if(pickerViewMake.selectedRow(inComponent: 0) == 0)
         {
             pickerViewMake.selectRow(0, inComponent: 0, animated: true);
             self.pickerView(pickerViewMake, didSelectRow: 0, inComponent: 0);
         }
     }
     
-    @IBAction func carModelEditing(sender: AnyObject) {
+    @IBAction func carModelEditing(_ sender: AnyObject) {
         pickerViewModel.delegate = self;
         pickerViewModel.dataSource = self;
         carModelTextField.inputView = self.pickerViewModel;
-        if(pickerViewModel.selectedRowInComponent(0) == 0)
+        if(pickerViewModel.selectedRow(inComponent: 0) == 0)
         {
             pickerViewModel.selectRow(0, inComponent: 0, animated: false);
             self.pickerView(pickerViewModel, didSelectRow: 0, inComponent: 0);
         }
     }
-    @IBAction func carOptionsEditing(sender: AnyObject) {
+    @IBAction func carOptionsEditing(_ sender: AnyObject) {
         pickerViewOptions.delegate = self;
         pickerViewOptions.dataSource = self;
         carOptionsTextField.inputView = self.pickerViewOptions;
-        if(pickerViewOptions.selectedRowInComponent(0) == 0)
+        if(pickerViewOptions.selectedRow(inComponent: 0) == 0)
         {
             pickerViewOptions.selectRow(0, inComponent: 0, animated: false);
             self.pickerView(pickerViewOptions, didSelectRow: 0, inComponent: 0);
         }
     }
-    @IBAction func finishedEditingYear(sender: AnyObject) {
+    @IBAction func finishedEditingYear(_ sender: AnyObject) {
        if(selectedCarYear.isEmpty == false)
        {
-        carMakeTextField.userInteractionEnabled = true;
+        carMakeTextField.isUserInteractionEnabled = true;
         carMakeTextField.text = "Car Make:";
         }
         else
        {
-        carMakeTextField.userInteractionEnabled = false;
+        carMakeTextField.isUserInteractionEnabled = false;
         carMakeTextField.placeholder = "Select a Car Year First";
         
         }
     }
-    @IBAction func finishedEditingMake(sender: AnyObject) {
+    @IBAction func finishedEditingMake(_ sender: AnyObject) {
         if(selectedCarMake.isEmpty == false)
         {
-            carModelTextField.userInteractionEnabled = true;
+            carModelTextField.isUserInteractionEnabled = true;
             carModelTextField.text = "Car Model:";
         }
         else
         {
-            carModelTextField.userInteractionEnabled = false;
+            carModelTextField.isUserInteractionEnabled = false;
             carModelTextField.placeholder = "Select a Car Model First";
         }
     }
-    @IBAction func finishedEditingModel(sender: AnyObject) {
+    @IBAction func finishedEditingModel(_ sender: AnyObject) {
     if(selectedCarModel.isEmpty == false)
         {
-            carOptionsTextField.userInteractionEnabled = true;
+            carOptionsTextField.isUserInteractionEnabled = true;
             carOptionsTextField.text = "Car Options:";
         }
         else
         {
-            carOptionsTextField.userInteractionEnabled = false;
+            carOptionsTextField.isUserInteractionEnabled = false;
             carOptionsTextField.placeholder = "Select a Car Option First";
         }
     }
     func setupCarToolbars()
     {
         let carToolbar = UIToolbar();
-        carToolbar.barStyle = .Default;
+        carToolbar.barStyle = .default;
        
         carToolbar.sizeToFit();
-        let doneButton = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "handleCarToolbarDone:");
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil);
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(Settings.handleCarToolbarDone(_:)));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil);
         carToolbar.setItems([spaceButton,doneButton], animated: false);
-        carToolbar.userInteractionEnabled = true;
+        carToolbar.isUserInteractionEnabled = true;
         carYearTextField.inputAccessoryView = carToolbar;
         carMakeTextField.inputAccessoryView = carToolbar;
         carModelTextField.inputAccessoryView = carToolbar;
         carOptionsTextField.inputAccessoryView = carToolbar;
     }
-    func handleCarToolbarDone(sender: UIBarButtonItem){
+    func handleCarToolbarDone(_ sender: UIBarButtonItem){
         self.view.endEditing(true);
     }
     
-    @IBAction func saveCarButtonPressed(sender: AnyObject) {
+    @IBAction func saveCarButtonPressed(_ sender: AnyObject) {
         let temp = carOptionsTextField.text;
         if(carOptionsTextField.text?.isEmpty == false && selectedCarMPG.isEmpty == false && carOptionsTextField.text != "Car Options:") //Checks that submission is valid
         {
@@ -151,60 +151,59 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         tempArray.append(selectedCarModel);
         tempArray.append(selectedCarOptions);
         tempArray.append(selectedCarMPG);
-        if(!savedCars.contains({$0 == tempArray})) //Checks if this car is saved already.
+        if(!savedCars.contains(where: {$0 == tempArray})) //Checks if this car is saved already.
         {
             if(savedCars.count <= 5)
             {
             savedCars.append(tempArray);
-            settings.setObject(savedCars, forKey: "savedCars");
-            self.presentViewController(simpleAlert("Info", Message: "Car Saved!"), animated: true, completion: nil);
+            settings.set(savedCars, forKey: "savedCars");
+            self.present(simpleAlert("Info", Message: "Car Saved!"), animated: true, completion: nil);
     
             }
             else
             {
-                self.presentViewController(simpleAlert("Info", Message: "Maximum number of saved cars has been reached."), animated: true, completion: nil);
+                self.present(simpleAlert("Info", Message: "Maximum number of saved cars has been reached."), animated: true, completion: nil);
             }
         }
         else
         {
-            self.presentViewController(simpleAlert("Info", Message: "This car is already saved."), animated: true, completion: nil);
+            self.present(simpleAlert("Info", Message: "This car is already saved."), animated: true, completion: nil);
         }
         }
         else
         {
-            self.presentViewController(simpleAlert("Info", Message: "Please make sure all car fields are completed."), animated: true, completion: nil);
+            self.present(simpleAlert("Info", Message: "Please make sure all car fields are completed."), animated: true, completion: nil);
         }
 
     }
-        @IBAction func clearCarsButton(sender: AnyObject) {
+        @IBAction func clearCarsButton(_ sender: AnyObject) {
         savedCars.removeAll();
-        settings.setObject(savedCars, forKey: "savedCars");
+        settings.set(savedCars, forKey: "savedCars");
         }
     func loadDefaults(){
-        let drivingHoursPerDay = settings.integerForKey("driveHoursPerDay");
-        if(settings.objectForKey("savedCars") != nil)
+        let drivingHoursPerDay = settings.integer(forKey: "driveHoursPerDay");
+        if(settings.object(forKey: "savedCars") != nil)
         {
-            savedCars = settings.objectForKey("savedCars") as! Array<Array<String>>;
+            savedCars = settings.object(forKey: "savedCars") as! Array<Array<String>>;
         }
         drivingHoursSlider.value = Float(drivingHoursPerDay);
         drivingHoursLabel.text = "Driving hours per day: " + String(drivingHoursPerDay);
     }
-    @IBAction func drivingHoursChange(sender: AnyObject) {
+    @IBAction func drivingHoursChange(_ sender: AnyObject) {
         let sliderValInt = (Int(drivingHoursSlider.value));
         drivingHoursLabel.text = "Driving hours per day: " + String(sliderValInt);
         drivingHoursSlider.value = Float(sliderValInt);
     }
-    override func viewWillDisappear(animated: Bool) {
-        settings.setInteger(Int(drivingHoursSlider.value), forKey: "driveHoursPerDay");
+    override func viewWillDisappear(_ animated: Bool) {
+        settings.set(Int(drivingHoursSlider.value), forKey: "driveHoursPerDay");
         
     }
     override func viewDidLoad() {
         loadDefaults();
-        self.canDisplayBannerAds = true;
         setupCarToolbars();
-        carMakeTextField.userInteractionEnabled = false;
-        carModelTextField.userInteractionEnabled = false;
-        carOptionsTextField.userInteractionEnabled = false;
+        carMakeTextField.isUserInteractionEnabled = false;
+        carModelTextField.isUserInteractionEnabled = false;
+        carOptionsTextField.isUserInteractionEnabled = false;
         carYearTextField.text = "Car Year:";
         carMakeTextField.placeholder = "Select a Car Year First";
         carModelTextField.placeholder = "Select a Car Make First";
@@ -215,8 +214,8 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         pickerViewModel.tag = 3;
         pickerViewOptions.tag = 4;
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> Void in
-            if let webData = NSData(contentsOfURL: self.yearUrl!){
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).async { () -> Void in
+            if let webData = try? Data(contentsOf: self.yearUrl!){
                 do {
                     let xmlDoc = try AEXMLDocument(xmlData: webData)
                     for child1 in xmlDoc.root.children{
@@ -230,7 +229,7 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if(pickerView.tag == 1)
         {
@@ -250,15 +249,15 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         }
         return carYears[row];
     }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             if(pickerView.tag == 1){
                 self.selectedCarYear = self.carYears[row];
                 self.carYearTextField.text = "Car Year: " + self.selectedCarYear;
                 self.carMakes.removeAll();
-                let makeUrl = NSURL(string: "http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=\(self.selectedCarYear)");
+                let makeUrl = URL(string: "http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=\(self.selectedCarYear)");
                 
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), { () -> Void in
-                    if let webData = NSData(contentsOfURL: makeUrl!){
+                DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).async(execute: { () -> Void in
+                    if let webData = try? Data(contentsOf: makeUrl!){
                         var error: NSError?
                         do {
                             let xmlDoc = try AEXMLDocument(xmlData: webData)
@@ -272,18 +271,18 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 })
                 
                 self.carMakeTextField.text = nil;
-                self.carMakeTextField.userInteractionEnabled = false;
+                self.carMakeTextField.isUserInteractionEnabled = false;
                 self.selectedCarMake = "";
                 self.pickerViewMake.selectRow(0, inComponent: 0, animated: true);
                 self.carModels.removeAll();
                 self.carModelTextField.text = nil;
-                self.carModelTextField.userInteractionEnabled = false;
+                self.carModelTextField.isUserInteractionEnabled = false;
                 self.selectedCarModel = "";
                 self.pickerViewModel.selectRow(0, inComponent: 0, animated: true);
                 self.pickerViewModel.reloadAllComponents();
                 self.selectedCarOptions = "";
                 self.carOptionsTextField.text = nil;
-                self.carOptionsTextField.userInteractionEnabled = false;
+                self.carOptionsTextField.isUserInteractionEnabled = false;
                 self.carOptions.removeAll();
             }
             if(pickerView.tag == 2){
@@ -291,10 +290,10 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 self.carMakeTextField.text = "Car Make: " + self.selectedCarMake;
                 self.carModels.removeAll();
                 let unformattedUrl = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=\(self.selectedCarYear)&make=\(self.selectedCarMake)";
-                let formattedUrl = unformattedUrl.stringByReplacingOccurrencesOfString(" ", withString: "%20");
-                let modelUrl = NSURL(string: formattedUrl);
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), { () -> Void in
-                    if let webData = NSData(contentsOfURL: modelUrl!){
+                let formattedUrl = unformattedUrl.replacingOccurrences(of: " ", with: "%20");
+                let modelUrl = URL(string: formattedUrl);
+                DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).async(execute: { () -> Void in
+                    if let webData = try? Data(contentsOf: modelUrl!){
                         var error: NSError?
                         do {
                             let xmlDoc = try AEXMLDocument(xmlData: webData)
@@ -311,8 +310,8 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 self.selectedCarOptions = "";
                 self.carModelTextField.text = nil;
                 self.carOptionsTextField.text = nil;
-                self.carModelTextField.userInteractionEnabled = false;
-                self.carOptionsTextField.userInteractionEnabled = false;
+                self.carModelTextField.isUserInteractionEnabled = false;
+                self.carOptionsTextField.isUserInteractionEnabled = false;
                 self.carOptions.removeAll();
                 self.pickerViewModel.selectRow(0, inComponent: 0, animated: true);
                 self.pickerViewOptions.selectRow(0, inComponent: 0, animated: true);
@@ -322,10 +321,10 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 self.carModelTextField.text = "Car Model: " + self.selectedCarModel;
                 self.carOptions.removeAll();
                 let unformattedUrl = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=\(self.selectedCarYear)&make=\(self.selectedCarMake)&model=\(self.selectedCarModel)";
-                let formattedUrl = unformattedUrl.stringByReplacingOccurrencesOfString(" ", withString: "%20");
-                let optionsUrl = NSURL(string: formattedUrl);
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), { () -> Void in
-                    if let webData = NSData(contentsOfURL: optionsUrl!){
+                let formattedUrl = unformattedUrl.replacingOccurrences(of: " ", with: "%20");
+                let optionsUrl = URL(string: formattedUrl);
+                DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).async(execute: { () -> Void in
+                    if let webData = try? Data(contentsOf: optionsUrl!){
                         var error: NSError?
                         do {
                             let xmlDoc = try AEXMLDocument(xmlData: webData)
@@ -339,7 +338,7 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 })
                 self.selectedCarOptions = "";
                 self.carOptionsTextField.text = nil;
-                self.carOptionsTextField.userInteractionEnabled = false;
+                self.carOptionsTextField.isUserInteractionEnabled = false;
                 
             }
             if(pickerView.tag == 4){
@@ -347,10 +346,10 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 self.selectedCarOptions = self.carOptions[row];
                 self.carOptionsTextField.text = "Car Options: " + self.selectedCarOptions;
                 let unformattedUrl = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=\(self.selectedCarYear)&make=\(self.selectedCarMake)&model=\(self.selectedCarModel)";
-                let formattedUrl = unformattedUrl.stringByReplacingOccurrencesOfString(" ", withString: "%20");
-                let optionsUrl = NSURL(string: formattedUrl);
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), { () -> Void in
-                    if let webData = NSData(contentsOfURL: optionsUrl!){
+                let formattedUrl = unformattedUrl.replacingOccurrences(of: " ", with: "%20");
+                let optionsUrl = URL(string: formattedUrl);
+                DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).async(execute: { () -> Void in
+                    if let webData = try? Data(contentsOf: optionsUrl!){
                         var error: NSError?
                         do {
                             let xmlDoc = try AEXMLDocument(xmlData: webData)
@@ -361,8 +360,8 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                         }
                     }
                     let mpgString = "http://www.fueleconomy.gov/ws/rest/vehicle/\(vehicleId)";
-                    let mpgUrl = NSURL(string: mpgString);
-                    if let webData2 = NSData(contentsOfURL: mpgUrl!){
+                    let mpgUrl = URL(string: mpgString);
+                    if let webData2 = try? Data(contentsOf: mpgUrl!){
                         var error: NSError?
                         do {
                             let xmlDoc = try AEXMLDocument(xmlData: webData2)
@@ -377,10 +376,10 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         
     }
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
     }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(pickerView.tag == 1)
         {
             return carYears.count;
@@ -397,12 +396,12 @@ class Settings: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         return carYears.count;
         
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return false;
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController : ViewController = segue.destinationViewController as! ViewController;
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destViewController : ViewController = segue.destination as! ViewController;
         destViewController.savedCars = savedCars;
     }
     

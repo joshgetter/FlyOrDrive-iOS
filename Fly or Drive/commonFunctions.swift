@@ -7,8 +7,8 @@
 //
 
 import Foundation
-func simpleAlert(Title: String, Message: String) -> UIAlertController{
-    let alert = UIAlertController(title: Title, message: Message, preferredStyle: UIAlertControllerStyle.Alert);
-    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil));
+func simpleAlert(_ Title: String, Message: String) -> UIAlertController{
+    let alert = UIAlertController(title: Title, message: Message, preferredStyle: UIAlertControllerStyle.alert);
+    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil));
     return alert;
 }
