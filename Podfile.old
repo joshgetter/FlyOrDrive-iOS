@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+platform :ios, '8.1'
+pod 'GoogleMaps'
+target 'Fly or Drive'
+pod 'Firebase'
+pod 'Firebase/Core'
+pod 'Firebase/AdMob'
+pod 'SwiftyJSON'
+pod 'ReachabilitySwift'
+

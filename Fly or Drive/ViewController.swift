@@ -493,8 +493,6 @@ class ViewController: UIViewController, XMLParserDelegate, UITextFieldDelegate, 
         {
             selectCarField.text = "";
         }
-        
-        
     }
     
     

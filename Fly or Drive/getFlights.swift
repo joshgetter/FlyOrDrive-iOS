@@ -10,10 +10,9 @@ import Foundation
 import CoreLocation
 func getAirports(_ startLat: String, startLon: String, endLat:String, endLon:String, departureDate:Date, returnDate:Date?, numberOfPassengers: Int)->[String:String]
 {
-    let airportAPI = AirportAPI()
-    let airports = airportAPI.GetAirports(startLat: startLat, startLon: startLon, endLat: endLat, endLon: endLon)
+    let airports = AirportAPI.GetAirports(startLat: startLat, startLon: startLon, endLat: endLat, endLon: endLon)
     
-    let returnPrice = getFlightData(startAirports: airports.origin, endAirports: airports.dest, departureDate: departureDate, returnDate: returnDate, numberOfPassengers: numberOfPassengers);
+    let returnPrice = getFlightData(startAirports: airports!.origin, endAirports: airports!.dest, departureDate: departureDate, returnDate: returnDate, numberOfPassengers: numberOfPassengers);
     if(returnPrice.0 == "no airport" && returnPrice.1 == "no airport")
     {
         return ["errors": "No airports were found there, please try a more specific or different location."];
